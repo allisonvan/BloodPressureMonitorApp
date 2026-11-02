@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'createaccoutbackend.dart';
 class createAccount extends StatefulWidget {
   const createAccount({super.key});
 
@@ -15,9 +15,11 @@ class _createAccountState extends State<createAccount> {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
     final TextEditingController repeatPasswordController = TextEditingController();
+    final TextEditingController phoneController = TextEditingController();
      String firstName = ' ';
      String lastName = ' ';
      String email = ' ';
+     String phone = ' ';
      String password = ' ';
      String repeatPassword = '';
 
@@ -25,6 +27,7 @@ class _createAccountState extends State<createAccount> {
         firstName = firstNameController.text;
         lastName = lastNameController.text;
         email = emailController.text;
+        phone = phoneController.text;
         password = passwordController.text;
         repeatPassword = repeatPasswordController.text;
      }
@@ -57,7 +60,15 @@ class _createAccountState extends State<createAccount> {
           color:  Color.fromARGB(255, 163, 47, 61) ,), 
           border: OutlineInputBorder(), 
           focusedBorder: OutlineInputBorder( borderSide: BorderSide(color:  Color.fromARGB(255, 163, 47, 61), width: 1.5), ),),),
-      
+
+        const SizedBox(height: 20.0), //space in between
+        TextField(controller: phoneController,
+          decoration: InputDecoration(labelText: 'Phone Number', 
+          floatingLabelStyle: TextStyle(
+          color:  Color.fromARGB(255, 163, 47, 61) ,), 
+          border: OutlineInputBorder(), 
+          focusedBorder: OutlineInputBorder( borderSide: BorderSide(color:  Color.fromARGB(255, 163, 47, 61), width: 1.5), ),),),
+
         const SizedBox(height: 20.0), //space in between
         TextField(controller: passwordController,
           obscureText: true, decoration: InputDecoration(labelText: 'Password', 
@@ -79,7 +90,7 @@ class _createAccountState extends State<createAccount> {
             bool inputError = false; 
             saveInput();
 
-            if(firstName.isEmpty || lastName.isEmpty  || email.isEmpty || password.isEmpty || repeatPassword.isEmpty){
+            if(firstName.isEmpty || lastName.isEmpty  || email.isEmpty ||phone.isEmpty|| password.isEmpty || repeatPassword.isEmpty){
             inputError = true;
             }
             for(int i = 0; i < firstName.length; i++ ){
@@ -96,6 +107,12 @@ class _createAccountState extends State<createAccount> {
             }
             for(int i = 0; i < email.length; i++ ){
               if(email[i]  == ' '){
+                inputError = true;
+                break;
+              }
+            }
+            for(int i = 0; i < phone.length; i++ ){
+              if(phone[i]  == ' '){
                 inputError = true;
                 break;
               }
@@ -117,6 +134,8 @@ class _createAccountState extends State<createAccount> {
             }
             if(inputError == false){
               print('all input fields are valid!!');
+             User user1 = User(firstName, lastName, email, phone, password);
+
             }
             else{
               print('there is an error somewhere');
