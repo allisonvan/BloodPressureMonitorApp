@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "827137628742",
+    "project_id": "senior-design-project-b3c83",
+    "storage_bucket": "senior-design-project-b3c83.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827137628742:android:ca36f782b9624151094847",
+        "android_client_info": {
+          "package_name": "com.example.bloodpressureapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6Yglhpc3KJK0vsRrQjF2xUEh56YGz-gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
