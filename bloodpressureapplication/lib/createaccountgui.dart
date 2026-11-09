@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'createaccoutbackend.dart';
+import 'package:bloodpressureapplication/loginpage_ui.dart';
 class createAccount extends StatefulWidget {
   const createAccount({super.key});
 
@@ -257,7 +258,14 @@ class _createAccountState extends State<createAccount> {
              //User user1 = User(firstName, lastName, email, phone, password);
               AuthService().signup(
                 email: email, password: password);
+              Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginPageUI(),
+                      ),
+                    );
             }
+            
             else{
               print('there is an error somewhere');
             }
